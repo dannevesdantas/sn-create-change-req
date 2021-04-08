@@ -48,8 +48,7 @@ function verificarAprovacaoChange(sysId) {
         url: `https://dev82459.service-now.com/api/sn_chg_rest/change/${sysId}`,
         headers: {
             'Accept': 'application/json',
-            'Authorization': 'Basic YWRtaW46ajZMdXNxbFUzVUNF',
-            'Content-Type': 'application/json'
+            'Authorization': 'Basic YWRtaW46ajZMdXNxbFUzVUNF'
         }
     }).then(function (response) {
         //console.log(JSON.stringify(response.data));
