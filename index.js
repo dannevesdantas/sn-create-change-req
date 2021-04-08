@@ -22,7 +22,7 @@ const intervalMs = intervalMinutes * 60000;
 criarChange();
 
 function criarChange() {
-    console.info('Criando mudança no ServiceNow.');
+    core.info('Criando mudança no ServiceNow.');
     axios({
         method: 'post',
         url: 'https://dev82459.service-now.com/api/sn_chg_rest/change',
@@ -36,8 +36,8 @@ function criarChange() {
         })
     }).then(function (response) {
         //console.log(JSON.stringify(response.data));
-        console.info(`Mudança criada no ServiceNow: ${response.data.result.number.value}`);
-        console.info('Aguardando aprovação.');
+        core.info(`Mudança criada no ServiceNow: ${response.data.result.number.value}`);
+        core.info('Aguardando aprovação.');
         var sysId = response.data.result.sys_id.value;
         setTimeout(function () { verificarAprovacaoChange(sysId); }, intervalMs);
     }).catch(function (error) {
@@ -47,7 +47,7 @@ function criarChange() {
 }
 
 function verificarAprovacaoChange(sysId) {
-    console.log('Verificando se a change já foi aprovada...');
+    core.info('Verificando se a change já foi aprovada...');
     axios({
         method: 'get',
         url: `https://dev82459.service-now.com/api/sn_chg_rest/change/${sysId}`,
@@ -57,14 +57,14 @@ function verificarAprovacaoChange(sysId) {
         }
     }).then(function (response) {
         //console.log(JSON.stringify(response.data));
-        console.info(`Mudança está no status: ${response.data.result.state.value}`);
+        core.info(`Mudança está no status: ${response.data.result.state.value}`);
         var chgCurrentStatus = response.data.result.state.value;
         const approvedStatusValue = -2.0;
         if (chgCurrentStatus < approvedStatusValue) {
-            console.info('Mudança ainda não foi aprovada. Verificando novamente em alguns minutos.');
+            core.info('Mudança ainda não foi aprovada. Verificando novamente em alguns minutos.');
             setTimeout(function () { verificarAprovacaoChange(sysId); }, intervalMs);
         } else {
-            console.info('Mudança aprovada no ServiceNow!');
+            core.info('Mudança aprovada no ServiceNow!');
         }
     }).catch(function (error) {
         setTimeout(function () { verificarAprovacaoChange(sysId); }, intervalMs);
