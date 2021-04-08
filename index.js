@@ -2,21 +2,10 @@ const core = require('@actions/core');
 const axios = require('axios');
 
 try {
-    // `who-to-greet` input defined in action metadata file
     const instanceUrl = core.getInput('instance-url');
-    //console.log(`Instance Url is ${instanceUrl}!`);
-    const time = (new Date()).toTimeString();
-    core.setOutput("time", time);
-    // Get the JSON webhook payload for the event that triggered the workflow
-    //const payload = JSON.stringify(github.context.payload, undefined, 2)
-    //console.log(`The event payload: ${payload}`);
 } catch (error) {
     core.setFailed(error.message);
 }
-
-// teste Danilo
-
-const instanceUrl = core.getInput('instance-url');
 
 console.log('Criando mudança no ServiceNow.');
 
@@ -34,7 +23,10 @@ axios({
 }).then(function (response) {
     //console.log(JSON.stringify(response.data));
     var chgNumber = response.data.result.number.value;
+    var sysId = response.data.result.sys_id.value;
     console.log(`Mudança criada com sucesso no ServiceNow: ${chgNumber}`);
+    core.setOutput("number", chgNumber);
+    core.setOutput("sys_id", sysId);
 }).catch(function (error) {
     //console.log(error);
     core.setFailed(error);
