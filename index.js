@@ -29,6 +29,7 @@ axios({
     console.log(`Mudança criada com sucesso: ${chgNumber}`);
     core.setOutput("number", chgNumber);
     core.setOutput("sys_id", sysId);
+    core.exportVariable('CHG_SYS_ID', sysId);
 }).catch(function (error) {
     //console.log(error);
     core.setFailed(error);
