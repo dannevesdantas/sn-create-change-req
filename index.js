@@ -26,7 +26,7 @@ axios({
     //console.log(JSON.stringify(response.data));
     var chgNumber = response.data.result.number.value;
     var sysId = response.data.result.sys_id.value;
-    console.log(`Mudança criada com sucesso no ServiceNow: ${chgNumber}`);
+    console.log(`Mudança criada com sucesso: ${chgNumber}`);
     core.setOutput("number", chgNumber);
     core.setOutput("sys_id", sysId);
 }).catch(function (error) {
