@@ -17,7 +17,7 @@ try {
 // teste Danilo
 
 const intervalMinutes = core.getInput('interval');
-const intervalMs = intervalMs*60000;
+const intervalMs = intervalMinutes*60000;
 
 axios({
     method: 'post',
