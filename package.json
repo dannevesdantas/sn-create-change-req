@@ -1,0 +1,24 @@
+{
+  "name": "sn-create-change-req",
+  "version": "1.0.0",
+  "description": "Creates a change request record on ServiceNow",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannevesdantas/sn-create-change-req.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dannevesdantas/sn-create-change-req/issues"
+  },
+  "homepage": "https://github.com/dannevesdantas/sn-create-change-req#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0"
+  }
+}
