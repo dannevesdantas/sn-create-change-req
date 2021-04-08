@@ -5,13 +5,15 @@ branding:
   color: green
   icon: user-check
 inputs:
-  who-to-greet:  # id da entrada
-    description: 'Who to greet'
+  instance-url:
+    description: 'ServiceNow instance URL'
     required: true
-    default: 'World'
+    default: 'https://<instance name>.service-now.com/'
 outputs:
-  time: # id da saída
-    description: 'The time we greeted you'
+  number:
+    description: 'The change request number'
+  sys_id:
+    description: 'Change request Unique record identifier'
 runs:
   using: 'node12'
   main: 'index.js'
