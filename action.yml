@@ -9,7 +9,7 @@ inputs:
     description: 'ServiceNow instance URL'
     required: true
 outputs:
-  number:
+  chg-number:
     description: 'The change request number'
   sys_id:
     description: 'Change request Unique record identifier'
