@@ -45,7 +45,7 @@ function criarChange() {
         //console.log(error);
         core.setFailed(error);
     }).then(function () {
-        core.endGroup()
+        core.endGroup();
     });
 }
 
