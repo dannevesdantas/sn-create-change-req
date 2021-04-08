@@ -35,7 +35,7 @@ axios({
     console.log(`Mudança criada no ServiceNow: ${response.data.result.number.value}`);
     console.log('Aguardando aprovação.');
     var sysId = response.data.result.sys_id.value;
-    setTimeout(verificarAprovacaoChange(sysId), intervalMs);
+    setTimeout(function () { verificarAprovacaoChange(sysId); }, intervalMs);
 }).catch(function (error) {
     //console.log(error);
     core.setFailed(error);
@@ -57,12 +57,12 @@ function verificarAprovacaoChange(sysId) {
         const approvedStatusValue = -2.0;
         if (chgCurrentStatus < approvedStatusValue) {
             console.log('Mudança ainda não foi aprovada. Verificando novamente em alguns minutos.');
-            setTimeout(verificarAprovacaoChange(sysId), intervalMs);
+            setTimeout(function () { verificarAprovacaoChange(sysId); }, intervalMs);
         } else {
             console.log('Mudança aprovada no ServiceNow!');
         }
-        setTimeout(verificarAprovacaoChange(sysId), intervalMs);
+        setTimeout(function () { verificarAprovacaoChange(sysId); }, intervalMs);
     }).catch(function (error) {
-        setTimeout(verificarAprovacaoChange(sysId), intervalMs);
+        setTimeout(function () { verificarAprovacaoChange(sysId); }, intervalMs);
     });
 }
