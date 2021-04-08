@@ -17,8 +17,6 @@ outputs:
     description: 'The change request number'
   sys_id:
     description: 'Change request Unique record identifier'
-  change-url:
-    description: 'Change request URL'
 runs:
   using: 'node12'
   main: 'index.js'
