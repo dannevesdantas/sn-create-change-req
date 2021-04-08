@@ -16,6 +16,8 @@ try {
 
 // teste Danilo
 
+const instanceUrl = core.getInput('instance-url');
+
 console.log('Criando mudança no ServiceNow.');
 
 axios({
