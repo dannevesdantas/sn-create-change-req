@@ -17,31 +17,34 @@ try {
 // teste Danilo
 
 const intervalMinutes = core.getInput('interval');
-const intervalMs = intervalMinutes*60000;
+const intervalMs = intervalMinutes * 60000;
 
-console.log('Criando mudança no ServiceNow.');
+criarChange();
 
-axios({
-    method: 'post',
-    url: 'https://dev82459.service-now.com/api/sn_chg_rest/change',
-    headers: {
-        'Accept': 'application/json',
-        'Authorization': 'Basic YWRtaW46ajZMdXNxbFUzVUNF',
-        'Content-Type': 'application/json'
-    },
-    data: JSON.stringify({
-        "description": "Deploy api-marketing B2B"
-    })
-}).then(function (response) {
-    //console.log(JSON.stringify(response.data));
-    console.log(`Mudança criada no ServiceNow: ${response.data.result.number.value}`);
-    console.log('Aguardando aprovação.');
-    var sysId = response.data.result.sys_id.value;
-    setTimeout(function () { verificarAprovacaoChange(sysId); }, intervalMs);
-}).catch(function (error) {
-    //console.log(error);
-    core.setFailed(error);
-});
+function criarChange() {
+    console.log('Criando mudança no ServiceNow.');
+    axios({
+        method: 'post',
+        url: 'https://dev82459.service-now.com/api/sn_chg_rest/change',
+        headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Basic YWRtaW46ajZMdXNxbFUzVUNF',
+            'Content-Type': 'application/json'
+        },
+        data: JSON.stringify({
+            "description": "Deploy api-marketing B2B"
+        })
+    }).then(function (response) {
+        //console.log(JSON.stringify(response.data));
+        console.log(`Mudança criada no ServiceNow: ${response.data.result.number.value}`);
+        console.log('Aguardando aprovação.');
+        var sysId = response.data.result.sys_id.value;
+        setTimeout(function () { verificarAprovacaoChange(sysId); }, intervalMs);
+    }).catch(function (error) {
+        //console.log(error);
+        core.setFailed(error);
+    });
+}
 
 function verificarAprovacaoChange(sysId) {
     console.log('Verificando se a change já foi aprovada...');
