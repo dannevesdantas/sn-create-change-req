@@ -1,8 +1,10 @@
 const core = require('@actions/core');
 const axios = require('axios');
 
+var instanceUrl;
+
 try {
-    const instanceUrl = core.getInput('instance-url');
+    instanceUrl = core.getInput('instance-url');
 } catch (error) {
     core.setFailed(error.message);
 }
