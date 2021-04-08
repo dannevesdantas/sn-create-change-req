@@ -45,7 +45,7 @@ function verificarAprovacaoChange(sysId) {
     console.log('Verificando se a change já foi aprovada...');
     axios({
         method: 'get',
-        url: `https://dev82459.service-now.com/api/sn_chg_rest/changehttps://dev82459.service-now.com/api/sn_chg_rest/change/${sysId}`,
+        url: `https://dev82459.service-now.com/api/sn_chg_rest/change/${sysId}`,
         headers: {
             'Accept': 'application/json',
             'Authorization': 'Basic YWRtaW46ajZMdXNxbFUzVUNF',
