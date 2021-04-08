@@ -61,7 +61,6 @@ function verificarAprovacaoChange(sysId) {
         } else {
             console.log('Mudança aprovada no ServiceNow!');
         }
-        setTimeout(function () { verificarAprovacaoChange(sysId); }, intervalMs);
     }).catch(function (error) {
         setTimeout(function () { verificarAprovacaoChange(sysId); }, intervalMs);
     });
