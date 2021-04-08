@@ -8,6 +8,10 @@ inputs:
   instance-url:
     description: 'ServiceNow instance URL'
     required: true
+  interval:
+    description: 'Interval between approval verifications in minutes'
+    required: true
+    default: 1
 outputs:
   number:
     description: 'The change request number'
