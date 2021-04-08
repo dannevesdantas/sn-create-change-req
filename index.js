@@ -19,6 +19,8 @@ try {
 const intervalMinutes = core.getInput('interval');
 const intervalMs = intervalMinutes*60000;
 
+console.log('Criando mudança no ServiceNow.');
+
 axios({
     method: 'post',
     url: 'https://dev82459.service-now.com/api/sn_chg_rest/change',
