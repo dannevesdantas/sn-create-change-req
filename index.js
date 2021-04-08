@@ -22,6 +22,7 @@ const intervalMs = intervalMinutes * 60000;
 criarChange();
 
 function criarChange() {
+    core.startGroup('Criar mudança');
     core.info('Criando mudança no ServiceNow.');
     axios({
         method: 'post',
@@ -43,6 +44,8 @@ function criarChange() {
     }).catch(function (error) {
         //console.log(error);
         core.setFailed(error);
+    }).then(function () {
+        core.endGroup()
     });
 }
 
