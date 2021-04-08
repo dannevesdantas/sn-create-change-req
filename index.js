@@ -39,7 +39,7 @@ function criarChange() {
         core.info(`Mudança criada no ServiceNow: ${response.data.result.number.value}`);
         core.info('Aguardando aprovação.');
         var sysId = response.data.result.sys_id.value;
-        setTimeout(function () { verificarAprovacaoChange(sysId); }, intervalMs);
+        //setTimeout(function () { verificarAprovacaoChange(sysId); }, intervalMs);
     }).catch(function (error) {
         //console.log(error);
         core.setFailed(error);
