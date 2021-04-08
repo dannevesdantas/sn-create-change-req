@@ -1,5 +1,5 @@
 name: 'sn-create-change-req'
-description: 'GCreates a change request record in ServiceNow.'
+description: 'Creates a change request record on ServiceNow.'
 author: 'dannevesdantas'
 branding:
   color: green
