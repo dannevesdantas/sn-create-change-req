@@ -1,5 +1,9 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'sn-create-change-req'
+description: 'GCreates a change request record in ServiceNow.'
+author: 'dannevesdantas'
+branding:
+  color: green
+  icon: user-check
 inputs:
   who-to-greet:  # id da entrada
     description: 'Who to greet'
