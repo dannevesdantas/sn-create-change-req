@@ -22,8 +22,7 @@ try {
     if (core.getInput('comments')) { fields["comments"] = core.getInput('comments'); }
 
     if (core.getInput('additional_fields')) {
-        var teste = core.getInput('additional_fields');
-        additionalFields = JSON.parse(teste);
+        additionalFields = JSON.parse(core.getInput('additional_fields'));
     }
 } catch (error) {
     core.setFailed(error.message);
