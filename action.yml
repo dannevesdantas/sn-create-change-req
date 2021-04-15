@@ -8,6 +8,12 @@ inputs:
   instance-url:
     description: 'ServiceNow instance URL'
     required: true
+  username:
+    description: 'ServiceNow username'
+    required: true
+  password:
+    description: 'ServiceNow password'
+    required: true
 outputs:
   chg-number:
     description: 'The change request number'
