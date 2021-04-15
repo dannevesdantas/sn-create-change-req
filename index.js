@@ -22,7 +22,8 @@ try {
     if (core.getInput('comments')) { fields["comments"] = core.getInput('comments'); }
 
     if (core.getInput('additional_fields')) {
-        additionalFields = core.getInput('additional_fields');
+        var teste = core.getInput('additional_fields');
+        additionalFields = JSON.parse(teste);
     }
 } catch (error) {
     core.setFailed(error.message);
@@ -33,7 +34,7 @@ console.log('Criando mudança no ServiceNow.');
 var allFields = Object.assign({}, fields, additionalFields);
 
 console.log('fields: ' + JSON.stringify(fields));
-console.log('additional_fields: ' + JSON.parse(additionalFields));
+console.log('additional_fields: ' + JSON.stringify(additionalFields));
 console.log('allFields: ' + JSON.stringify(allFields));
 
 axios({
