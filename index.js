@@ -5,7 +5,7 @@ var server;
 var username;
 var password;
 var fields = {};
-var additionalFields;
+var additionalFields = {};
 
 try {
     server = core.getInput('server', { required: true });
@@ -30,6 +30,12 @@ try {
 
 console.log('Criando mudança no ServiceNow.');
 
+var allFields = Object.assign({}, fields, additionalFields);
+
+console.log('fields: ' + JSON.stringify(fields));
+console.log('additional_fields: ' + JSON.stringify(additionalFields));
+console.log('allFields: ' + JSON.stringify(allFields));
+
 axios({
     method: 'post',
     url: `${server}/api/now/table/change_request?sysparm_display_value=True&sysparm_input_display_value=True`,
@@ -41,7 +47,7 @@ axios({
         'Accept': 'application/json',
         'Content-Type': 'application/json'
     },
-    data: JSON.stringify(fields)
+    data: JSON.stringify(allFields)
 }).then(function (response) {
     //console.log(JSON.stringify(response.data));
     var number = response.data.result.number;
