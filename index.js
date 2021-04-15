@@ -17,7 +17,7 @@ console.log('Criando mudança no ServiceNow.');
 
 axios({
     method: 'post',
-    url: `${instanceUrl}/api/sn_chg_rest/change`,
+    url: `${instanceUrl}/api/now/table/change_request?sysparm_display_value=True&sysparm_input_display_value=True`,
     auth: {
         username: username,
         password: password
@@ -31,8 +31,8 @@ axios({
     })
 }).then(function (response) {
     //console.log(JSON.stringify(response.data));
-    var chgNumber = response.data.result.number.value;
-    var sysId = response.data.result.sys_id.value;
+    var chgNumber = response.data.result.number;
+    var sysId = response.data.result.sys_id;
 
     console.log(`Mudança criada com sucesso: ${chgNumber}`);
     console.log(`Link para mudança: ${instanceUrl}/nav_to.do?uri=change_request.do?sys_id=${sysId}`);
