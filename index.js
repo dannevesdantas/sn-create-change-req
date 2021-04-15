@@ -52,7 +52,10 @@ axios({
     console.log(`Mudança criada com sucesso: ${number}`);
     console.log(`Link para mudança: ${server}/nav_to.do?uri=change_request.do?sys_id=${sysId}`);
 
+    // Manually wrap output
+    core.startGroup('Output properties')
     console.log(JSON.stringify(response.data.result));
+    core.endGroup()
 
     core.setOutput("data", JSON.stringify(response.data.result));
     core.setOutput("sys_id", sysId);
