@@ -5,15 +5,29 @@ branding:
   color: green
   icon: user-check
 inputs:
-  instance-url:
-    description: 'ServiceNow instance URL'
+  server:
     required: true
-  username:
-    description: 'ServiceNow username'
+  username
+  password
+  short_description:
+    description: 'The short description of the task.'
     required: true
-  password:
-    description: 'ServiceNow password'
-    required: true
+  description:
+    description: 'The complete description of the task.'
+  configuration_item:
+    description: 'Related CMDB configuration item (id or display value).'
+  assignment_group:
+    description: 'The assignment group of the task.'
+  assigned_to:
+    description: 'The assignee of the task.'
+  state:
+    description: 'The display value of the task state.'
+  priority:
+    description: 'The priority of the task.'
+  comments:
+    description: 'Leave comments to the comments (customer visible) field.'
+  additional_fields:
+    description: 'Use ServiceNow technical field name as 'key' and the corresponding value.'
 outputs:
   chg-number:
     description: 'The change request number'
