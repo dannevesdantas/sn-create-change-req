@@ -4,7 +4,7 @@ const axios = require('axios');
 var server;
 var username;
 var password;
-var fields = [];
+var fields = {};
 var additionalFields;
 
 try {
@@ -29,10 +29,6 @@ try {
 }
 
 console.log('Criando mudança no ServiceNow.');
-
-if (core.getInput('description')) { console.log('if description deu true'); } else { console.log('if description deu false'); }
-
-console.log(JSON.stringify(fields));
 
 axios({
     method: 'post',
