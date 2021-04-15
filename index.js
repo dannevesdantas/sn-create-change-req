@@ -32,10 +32,6 @@ console.log('Criando mudança no ServiceNow.');
 
 var allFields = Object.assign({}, fields, additionalFields);
 
-console.log('fields: ' + JSON.stringify(fields));
-console.log('additional_fields: ' + JSON.stringify(additionalFields));
-console.log('allFields: ' + JSON.stringify(allFields));
-
 axios({
     method: 'post',
     url: `${server}/api/now/table/change_request?sysparm_display_value=True&sysparm_input_display_value=True`,
@@ -55,6 +51,8 @@ axios({
 
     console.log(`Mudança criada com sucesso: ${number}`);
     console.log(`Link para mudança: ${server}/nav_to.do?uri=change_request.do?sys_id=${sysId}`);
+
+    console.log(JSON.stringify(response.data.result));
 
     core.setOutput("data", JSON.stringify(response.data.result));
     core.setOutput("sys_id", sysId);
