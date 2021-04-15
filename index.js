@@ -33,7 +33,7 @@ console.log('Criando mudança no ServiceNow.');
 var allFields = Object.assign({}, fields, additionalFields);
 
 console.log('fields: ' + JSON.stringify(fields));
-console.log('additional_fields: ' + JSON.stringify(additionalFields));
+console.log('additional_fields: ' + JSON.parse(additionalFields));
 console.log('allFields: ' + JSON.stringify(allFields));
 
 axios({
