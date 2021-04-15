@@ -6,28 +6,41 @@ branding:
   icon: user-check
 inputs:
   server:
+    description: 'ServiceNow instance URL'
     required: true
-  username
-  password
+  username:
+    description: 'ServiceNow username'
+    required: false
+  password:
+    description: 'ServiceNow password'
+    required: false
   short_description:
     description: 'The short description of the task.'
     required: true
   description:
     description: 'The complete description of the task.'
+    required: false
   configuration_item:
     description: 'Related CMDB configuration item (id or display value).'
+    required: false
   assignment_group:
     description: 'The assignment group of the task.'
+    required: false
   assigned_to:
     description: 'The assignee of the task.'
+    required: false
   state:
     description: 'The display value of the task state.'
+    required: false
   priority:
     description: 'The priority of the task.'
+    required: false
   comments:
     description: 'Leave comments to the comments (customer visible) field.'
+    required: false
   additional_fields:
     description: 'Use ServiceNow technical field name as 'key' and the corresponding value.'
+    required: false
 outputs:
   data:
     description: 'The output of the script can be stored in release variables; specify the variables to be used (optional)'
