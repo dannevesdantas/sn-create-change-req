@@ -2,9 +2,13 @@ const core = require('@actions/core');
 const axios = require('axios');
 
 var instanceUrl;
+var username;
+var password;
 
 try {
     instanceUrl = core.getInput('instance-url');
+    username = core.getInput('username');
+    password = core.getInput('password');
 } catch (error) {
     core.setFailed(error.message);
 }
@@ -14,9 +18,12 @@ console.log('Criando mudança no ServiceNow.');
 axios({
     method: 'post',
     url: `${instanceUrl}/api/sn_chg_rest/change`,
+    auth: {
+        username: username,
+        password: password
+    },
     headers: {
         'Accept': 'application/json',
-        'Authorization': 'Basic YWRtaW46ajZMdXNxbFUzVUNF',
         'Content-Type': 'application/json'
     },
     data: JSON.stringify({
