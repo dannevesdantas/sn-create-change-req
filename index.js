@@ -45,15 +45,15 @@ axios({
     })
 }).then(function (response) {
     //console.log(JSON.stringify(response.data));
-    var chgNumber = response.data.result.number;
+    var number = response.data.result.number;
     var sysId = response.data.result.sys_id;
 
-    console.log(`Mudança criada com sucesso: ${chgNumber}`);
+    console.log(`Mudança criada com sucesso: ${number}`);
     console.log(`Link para mudança: ${server}/nav_to.do?uri=change_request.do?sys_id=${sysId}`);
 
-    core.setOutput("chg-number", chgNumber);
+    core.setOutput("data", JSON.stringify(response.data.result));
     core.setOutput("sys_id", sysId);
-    core.exportVariable('CHG_SYS_ID', sysId);
+    core.setOutput("number", number);
 
 }).catch(function (error) {
     //console.log(error);
