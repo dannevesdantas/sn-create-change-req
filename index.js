@@ -4,7 +4,7 @@ const axios = require('axios');
 var server;
 var username;
 var password;
-var fields;
+var fields = [];
 var additionalFields;
 
 try {
