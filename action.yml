@@ -29,10 +29,12 @@ inputs:
   additional_fields:
     description: 'Use ServiceNow technical field name as 'key' and the corresponding value.'
 outputs:
-  chg-number:
-    description: 'The change request number'
+  data:
+    description: 'The output of the script can be stored in release variables; specify the variables to be used (optional)'
   sys_id:
-    description: 'Change request Unique record identifier'
+    description: 'The technical id of the task.'
+  number:
+    description: 'The unique number of the task.'
 runs:
   using: 'node12'
   main: 'index.js'
