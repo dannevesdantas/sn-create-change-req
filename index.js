@@ -30,7 +30,8 @@ try {
 
 console.log('Criando mudança no ServiceNow.');
 
-console.log(core.getInput('descriptisdfdsfon'));
+if (core.getInput('description')) { console.log('if description deu true'); } else { console.log('if description deu false'); }
+
 console.log(JSON.stringify(fields));
 
 axios({
