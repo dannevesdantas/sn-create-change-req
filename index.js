@@ -61,7 +61,20 @@ axios({
     core.setOutput("sys_id", sysId);
     core.setOutput("number", number);
 
+    core.exportVariable('CHG_SYS_ID', sysId);
+
 }).catch(function (error) {
     //console.log(error);
     core.setFailed(error);
 });
+
+telnet CL-HSQLECOM01.dc.nova 1001
+Delphix-hlg-001.dc.nova 1557
+Delphix-hlg-001.dc.nova 1558
+Delphix-hlg-001.dc.nova 1560
+Delphix-hlg-002.dc.nova 1557
+Delphix-hlg-003.dc.nova 1433
+Delphix-hlg-004.dc.nova 1433
+Delphix-hlg-004.dc.nova 1557
+Delphix-hlg-004.dc.nova 1558
+Delphix-hlg-004.dc.nova 1560
