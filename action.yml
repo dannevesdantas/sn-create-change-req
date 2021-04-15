@@ -39,7 +39,7 @@ inputs:
     description: 'Leave comments to the comments (customer visible) field.'
     required: false
   additional_fields:
-    description: 'Use ServiceNow technical field name as 'key' and the corresponding value.'
+    description: 'Use ServiceNow technical field name as \u0027key\u0027 and the corresponding value.'
     required: false
 outputs:
   data:
