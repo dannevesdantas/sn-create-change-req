@@ -54,7 +54,7 @@ axios({
 
     // Manually wrap output
     core.startGroup('Output properties')
-    console.log(JSON.stringify(response.data.result));
+    console.log(JSON.stringify(response.data.result, null, 2));
     core.endGroup()
 
     core.setOutput("data", JSON.stringify(response.data.result));
