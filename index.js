@@ -30,6 +30,8 @@ try {
 
 console.log('Criando mudança no ServiceNow.');
 
+console.log(JSON.stringify(fields));
+
 axios({
     method: 'post',
     url: `${server}/api/now/table/change_request?sysparm_display_value=True&sysparm_input_display_value=True`,
