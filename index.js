@@ -30,7 +30,7 @@ try {
 
 console.log('Criando mudança no ServiceNow.');
 
-console.log(core.getInput('description'));
+console.log(core.getInput('descriptisdfdsfon'));
 console.log(JSON.stringify(fields));
 
 axios({
