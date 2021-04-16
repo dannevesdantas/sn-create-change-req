@@ -40,11 +40,10 @@ axios({
     data: JSON.stringify(allFields)
 }).then(function (response) {
     //console.log(JSON.stringify(response.data));
-    var number = response.data.result.number;
-    var sysId = response.data.result.sys_id;
 
-    console.log(`Mudança criada com sucesso: ${number}`);
-    console.log(`Link para mudança: ${server}/nav_to.do?uri=change_request.do?sys_id=${sysId}`);
+    console.log(`Sys Id: ${response.data.result.sys_id}`);
+    console.log(`Number: ${response.data.result.number}`);
+    console.log(`Link: ${server}/nav_to.do?uri=change_request.do?sys_id=${sysId}`);
 
     // Manually wrap output
     core.startGroup('Output properties')
@@ -52,11 +51,11 @@ axios({
     core.endGroup()
 
     core.setOutput("data", JSON.stringify(response.data.result));
-    core.setOutput("sys_id", sysId);
-    core.setOutput("number", number);
+    core.setOutput("sys_id", response.data.result.sys_id);
+    core.setOutput("number", response.data.result.number);
 
-    core.exportVariable('CHG_SYS_ID', sysId);
-    core.exportVariable('CHG_NUMBER', number);
+    core.exportVariable('CHG_SYS_ID', response.data.result.sys_id);
+    core.exportVariable('CHG_NUMBER', response.data.result.number);
 
 }).catch(function (error) {
     //console.log(error);
