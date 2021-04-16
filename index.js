@@ -28,8 +28,6 @@ try {
     core.setFailed(error.message);
 }
 
-console.log('Criando mudança no ServiceNow.');
-
 var allFields = Object.assign({}, fields, additionalFields);
 
 axios({
@@ -42,6 +40,10 @@ axios({
     //console.log(JSON.stringify(response.data));
 
     console.log(`Created '${response.data.result.number}' with sysId '${response.data.result.sys_id}' in Service Now.`);
+
+    console.log(`Sys Id: ${response.data.result.sys_id}`);
+    console.log(`Number: ${response.data.result.number}`);
+    
     console.log(`${server}/nav_to.do?uri=change_request.do?sys_id=${response.data.result.sys_id}`);
 
     // Manually wrap output
