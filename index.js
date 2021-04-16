@@ -54,7 +54,7 @@ axios({
 
     // Manually wrap output
     core.startGroup('Output properties')
-    console.log(JSON.stringify(response.data.result, null, '\t'));
+    console.log(JSON.stringify(response.data.result));
     core.endGroup()
 
     core.setOutput("data", JSON.stringify(response.data.result));
@@ -62,6 +62,7 @@ axios({
     core.setOutput("number", number);
 
     core.exportVariable('CHG_SYS_ID', sysId);
+    core.exportVariable('CHG_NUMBER', number);
 
 }).catch(function (error) {
     //console.log(error);
