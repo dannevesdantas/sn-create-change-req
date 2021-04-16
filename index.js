@@ -43,7 +43,7 @@ axios({
 
     console.log(`Sys Id: ${response.data.result.sys_id}`);
     console.log(`Number: ${response.data.result.number}`);
-    console.log(`Link: ${server}/nav_to.do?uri=change_request.do?sys_id=${sysId}`);
+    console.log(`Link: ${server}/nav_to.do?uri=change_request.do?sys_id=${response.data.result.sys_id}`);
 
     // Manually wrap output
     core.startGroup('Output properties')
