@@ -28,9 +28,6 @@ try {
     core.setFailed(error.message);
 }
 
-console.log(username);
-console.log(password);
-
 var allFields = Object.assign({}, fields, additionalFields);
 
 axios({
